@@ -27,15 +27,22 @@ module.exports = class Generator {
 			}
 		}
 
-		const options = {}
-		options['renderTime'] = 0
-		options['chunkList'] = chunks
-		options['camera.position.x'] = x * 16 + (this.regionSize * 16) / 2
-		options['camera.position.z'] = z * 16 + (this.regionSize * 16) / 2
+		// options to change in scenes/<scene>/<scene>.json
+		// `chunkList`          => list of chunks to render
+		// `camera.position`    => x & z position of camera
+		const options = {
+			chunkList: chunks,
+			camera: {
+				position: {
+					x: x * 16 + (this.regionSize * 16) / 2,
+					z: z * 16 + (this.regionSize * 16) / 22
+				}
+			}
+		}
 
 		await this.chunky.updateSceneData(options)
 		await this.chunky.renderScene()
-		await this.chunky.saveRender(path.join(outPath, index))
+		await this.chunky.saveRender(path.join(outPath, index.toString()))
 	}
 
 	async generateMetadata(index, outPath) {

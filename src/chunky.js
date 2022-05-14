@@ -25,14 +25,14 @@ module.exports = class Chunky {
 		const json = JSON.parse(buffer.toString())
 
 		// override all matching keys with its `options` value
-		Object.entries(options).forEach(([k, v]) => (json[k] = v))
+		Object.entries(flatten(options)).forEach(([k, v]) => (json[k] = v))
 
 		await writeFile(sceneOptionFile, JSON.stringify(json, null, 4))
 	}
 
 	async renderScene() {
 		const sceneName = this.sceneDir.substring(this.sceneDir.lastIndexOf('\\') + 1)
-		const scenePath = path.join(this.sceneDir, sceneName)
+		const scenePath = path.join(this.sceneDir, sceneName + '.json')
 		await this.do(`-reload-chunks -render ${scenePath}`)
 	}
 
