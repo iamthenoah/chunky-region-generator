@@ -1,4 +1,6 @@
-module.exports = (obj, prefix = '') => {
+'use strict'
+
+const flatten = (obj, prefix = '') => {
 	return Object.keys(obj).reduce((acc, k) => {
 		const pre = prefix.length ? prefix + '.' : ''
 		if (typeof obj[k] === 'object') {
@@ -9,3 +11,5 @@ module.exports = (obj, prefix = '') => {
 		return acc
 	}, {})
 }
+
+module.exports = flatten
