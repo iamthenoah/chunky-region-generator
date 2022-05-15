@@ -17,5 +17,6 @@
 		"prismarine-provider-anvil": "^2.7.0",
 		"prismarine-registry": "^1.2.0",
 		"sound-play": "^1.1.0"
-	}
+	},
+	"bin": "./bin/cli.js"
 }

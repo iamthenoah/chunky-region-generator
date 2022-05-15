@@ -1,7 +1,7 @@
-'use strict'
+#!/usr/bin/env node
 
 const { ArgumentParser } = require('argparse')
-const { createGenerator } = require('./index')
+const { createGenerator } = require('../index')
 
 const parser = new ArgumentParser({
 	description: 'Chunky Region Generator CLI'
