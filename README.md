@@ -28,7 +28,7 @@ for (let i = 1; i <= 100; i++) {
 
 | Option                         | Description                                             |   Default   |
 | ------------------------------ | :------------------------------------------------------ | :---------: |
-| `chunkyHome`                   | The path that points to the Chunky home directory       |             |
+| `chunkyHome`                   | The path that points to the Chunky home directory       |  `/.chunk`  |
 | `chunkyLauncher`               | The path of the Chunky launch jar file                  |             |
 | `outputPath`                   | Output file for the generated content                   | `Downloads` |
 | `sceneName`                    | The scene of the name to render from                    |   `scene`   |
