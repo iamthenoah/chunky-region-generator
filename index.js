@@ -8,6 +8,7 @@ const defaultOptions = {
 	chunkyHome: path.join(homedir(), '.chunky'),
 	outputPath: path.join(homedir(), 'Downloads'),
 	sceneName: 'scene',
+	mcVersion: '1.18.2',
 	notifyWhenDone: false
 }
 
@@ -32,6 +33,7 @@ const createGenerator = configs => {
 		configs.sceneName,
 		configs.resgionSize,
 		configs.totalCount,
+		configs.mcVersion,
 		configs.metadataOptions,
 		configs.notifyWhenDone
 	)
