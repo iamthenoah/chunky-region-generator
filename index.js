@@ -1,11 +1,12 @@
-const Generator = require('./src/generator')
+const Generator = require('./lib/generator')
 const { homedir } = require('os')
 const path = require('path')
 
 const defaultOptions = {
 	chunkyHome: path.join(homedir(), '.chunky'),
 	outputPath: path.join(homedir(), 'Downloads'),
-	sceneName: 'scene'
+	sceneName: 'scene',
+	notifyWhenDone: false
 }
 
 const createGenerator = configs => {
@@ -29,7 +30,8 @@ const createGenerator = configs => {
 		configs.sceneName,
 		configs.resgionSize,
 		configs.totalCount,
-		configs.metadataOptions
+		configs.metadataOptions,
+		configs.notifyWhenDone
 	)
 }
 
