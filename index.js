@@ -1,22 +1,36 @@
 const Generator = require('./src/generator')
+const { homedir } = require('os')
+const path = require('path')
 
-const main = async configs => {
-	const generator = new Generator(
+const defaultOptions = {
+	chunkyHome: path.join(homedir(), '.chunky'),
+	outputPath: path.join(homedir(), 'Downloads'),
+	sceneName: 'scene'
+}
+
+const createGenerator = configs => {
+	if (!configs.chunkyLauncher) {
+		throw new Error('Missing `chunkyLauncher`. Should be the path to the Chunky launcher a jar file.')
+	}
+	if (!configs.resgionSize) {
+		throw new Error('Missing `resgionSize`. Should be the size of a region in chunks.')
+	}
+	if (!configs.totalCount) {
+		throw new Error('missing `totalCount`. Should be the total amount of regions.')
+	}
+
+	// apply default generator configs if missing
+	Object.entries(defaultOptions).forEach(([k, v]) => (configs[k] = configs[k] ?? v))
+
+	return new Generator(
 		configs.chunkyHome,
 		configs.chunkyLauncher,
 		configs.outputPath,
 		configs.sceneName,
 		configs.resgionSize,
 		configs.totalCount,
-		{
-			description: 'This is a description',
-			external_url: 'http://example.com',
-			image_url: 'ipfs://QmSq1iNxbGbi8WRDY7VnyyC3LnFEXY298rHbXwgfbKG64M/%.png'
-		}
+		configs.metadataOptions
 	)
-
-	await generator.generateMetadata(1)
-	await generator.generateImage(1)
 }
 
-main(require('./temp/configs.json'))
+module.exports = { Generator, createGenerator }
