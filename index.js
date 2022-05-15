@@ -1,3 +1,5 @@
+'use strict'
+
 const Generator = require('./lib/generator')
 const { homedir } = require('os')
 const path = require('path')
