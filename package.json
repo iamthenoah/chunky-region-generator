@@ -2,16 +2,18 @@
 	"name": "chunky-region-generator",
 	"version": "1.0.0",
 	"description": "A tool for generating regions images & metadata using Chunky in an nft-like fashion",
+	"keywords": [
+		"minecraft",
+		"chunky",
+		"nft",
+		"generator"
+	],
 	"main": "index.js",
 	"author": "Noah G",
 	"license": "ISC",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
 	"dependencies": {
 		"prismarine-biome": "^1.3.0",
 		"prismarine-provider-anvil": "^2.7.0",
-		"prismarine-registry": "^1.2.0",
-		"sound-play": "^1.1.0"
+		"prismarine-registry": "^1.2.0"
 	}
 }
