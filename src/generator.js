@@ -7,14 +7,28 @@ const { formatConventionalData } = require('./util/data')
 const path = require('path')
 
 module.exports = class Generator {
-	constructor(chunkyHome, chunkyPath, sceneDir, regionSize, totalCount) {
-		this.chunky = new Chunky(chunkyPath, sceneDir, true)
+	constructor(
+		chunkyHome,
+		chunkyLauncher,
+		outputPath,
+		sceneName,
+		regionSize,
+		totalCount,
+		metadataOptions = undefined
+	) {
+		this.chunky = new Chunky(chunkyLauncher, chunkyHome, sceneName, true)
 		this.regions = new Regions(chunkyHome, '1.18.2', regionSize, totalCount)
+		this.outputPath = outputPath
 		this.regionSize = regionSize
+		this.metadataOptions = metadataOptions
 	}
 
-	setMetadataOptions(options) {
-		this.metadataOptions = options
+	async generateImage(index) {
+		await this.generateImage(index, this.outputPath)
+	}
+
+	async generateMetadata(index) {
+		await this.generateMetadata(index, this.outputPath)
 	}
 
 	async generateImage(index, outPath) {
@@ -41,8 +55,7 @@ module.exports = class Generator {
 		}
 
 		await this.chunky.updateSceneData(options)
-		await this.chunky.renderScene()
-		await this.chunky.saveRender(path.join(outPath, index.toString()))
+		await this.chunky.renderScene(path.join(outPath, index.toString()))
 	}
 
 	async generateMetadata(index, outPath) {

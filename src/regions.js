@@ -1,6 +1,5 @@
 'use strict'
 
-const { readFile } = require('fs')
 const path = require('path')
 
 module.exports = class Regions {
@@ -27,24 +26,34 @@ module.exports = class Regions {
 
 	async getRegionBiomes(index) {
 		const { x, z } = this.calculateRegionCoordinates(index)
-		await this.getRegionBiomesAt(x, z)
+		return await this.getRegionBiomesAt(x, z)
 	}
 
 	getRegionBounds(index) {
 		const { x, z } = this.calculateRegionCoordinates(index)
-		this.getRegionBoundsAt(x, z)
+		return this.getRegionBoundsAt(x, z)
 	}
 
 	async getRegionBiomesAt(x, z) {
 		let biomes = []
+
 		for (let i = 0; i < this.regionSize; i++) {
 			for (let j = 0; j < this.regionSize; j++) {
+				const pos = {
+					x: this.regionSize * x + j,
+					z: this.regionSize * z + i
+				}
+
 				const chunk = await this.anvil.load(x + j, z + i)
-				const pos = { x: this.regionSize * x + j, z: this.regionSize * z + i }
-				biomes.push(chunk.getBiome(pos))
+				const biome = chunk.getBiome(pos)
+
+				if (!biomes.includes(biome)) {
+					biomes.push(biome)
+				}
 			}
 		}
-		return biomes.filter((v, i, a) => a.indexOf(v) == i).map(this.Biome)
+
+		return biomes.map(this.Biome)
 	}
 
 	getRegionBoundsAt(x, z) {
