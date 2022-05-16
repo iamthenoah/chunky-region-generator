@@ -35,7 +35,8 @@ const createGenerator = configs => {
 		configs.totalCount,
 		configs.mcVersion,
 		configs.metadataOptions,
-		configs.notifyWhenDone
+		configs.notifyWhenDone,
+		configs.chunkyVerbose
 	)
 }
 

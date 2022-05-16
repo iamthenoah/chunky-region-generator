@@ -26,20 +26,21 @@ for (let i = 1; i <= 100; i++) {
 
 ### Configs
 
-| Option                         | Description                                             |   Default   |
-| ------------------------------ | :------------------------------------------------------ | :---------: |
-| `chunkyHome`                   | The path that points to the Chunky home directory       | `/.chunky`  |
-| `chunkyLauncher`               | The path of the Chunky launch jar file                  |             |
-| `outputPath`                   | Output file for the generated content                   | `Downloads` |
-| `sceneName`                    | The scene of the name to render from                    |   `scene`   |
-| `mcVersion`                    | The Minecraft version (used for Biomes)                 |  `1.18.2`   |
-| `regionSize`                   | The size of a region in chunks (eg. 8 will be 8x8)      |             |
-| `totalCount`                   | The total amount of regions to render                   |             |
-| `notifyWhenDone`               | Whether to log Chunky's output                          |   `false`   |
-| `metadataOptions.description`  | The Nft project's description.                          |             |
-| `metadataOptions.external_url` | Any external url for the Nft's project,                 |             |
-| `metadataOptions.image_url`    | The external URL where the images are uploaded          |             |
-| `metadataOptions.namingScheme` | The naming scheme to follow (replaces '%' with number ) |             |
+| Option                         | Description                                              |   Default   |
+| ------------------------------ | :------------------------------------------------------- | :---------: |
+| `chunkyHome`                   | The path that points to the Chunky home directory        | `/.chunky`  |
+| `chunkyLauncher`               | The path of the Chunky launch jar file                   |             |
+| `outputPath`                   | Output file for the generated content                    | `Downloads` |
+| `sceneName`                    | The scene of the name to render from                     |   `scene`   |
+| `mcVersion`                    | The Minecraft version (used for Biomes)                  |  `1.18.2`   |
+| `regionSize`                   | The size of a region in chunks (eg. 8 will be 8x8)       |             |
+| `totalCount`                   | The total amount of regions to render                    |             |
+| `notifyWhenDone`               | Whether to play some sound when done generating an image |   `false`   |
+| `chunkyVerbose`                | Whether to log Chunky's output                           |   `false`   |
+| `metadataOptions.description`  | The Nft project's description.                           |             |
+| `metadataOptions.external_url` | Any external url for the Nft's project,                  |             |
+| `metadataOptions.image_url`    | The external URL where the images are uploaded           |             |
+| `metadataOptions.namingScheme` | The naming scheme to follow (replaces '%' with number )  |             |
 
 ### Using the CLI
 
