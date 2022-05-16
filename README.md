@@ -33,7 +33,7 @@ for (let i = 1; i <= 100; i++) {
 | `outputPath`                   | Output file for the generated content                   | `Downloads` |
 | `sceneName`                    | The scene of the name to render from                    |   `scene`   |
 | `mcVersion`                    | The Minecraft version (used for Biomes)                 |  `1.18.2`   |
-| `resgionSize`                  | The size of a region in chunks (eg. 8 will be 8x8)      |             |
+| `regionSize`                   | The size of a region in chunks (eg. 8 will be 8x8)      |             |
 | `totalCount`                   | The total amount of regions to render                   |             |
 | `notifyWhenDone`               | Whether to log Chunky's output                          |   `false`   |
 | `metadataOptions.description`  | The Nft project's description.                          |             |

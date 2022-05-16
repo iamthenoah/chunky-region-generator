@@ -68,7 +68,7 @@ export interface GeneratorConfigs {
 	chunkyLauncher: string
 	outputPath?: string
 	sceneName?: string
-	resgionSize: number
+	regionSize: number
 	totalCount: number
 	notifyWhenDone?: boolean
 	metadataOptions?: MetadataOptions

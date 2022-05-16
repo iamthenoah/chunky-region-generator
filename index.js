@@ -16,8 +16,8 @@ const createGenerator = configs => {
 	if (!configs.chunkyLauncher) {
 		throw new Error('Missing `chunkyLauncher`. Should be the path to the Chunky launcher a jar file.')
 	}
-	if (!configs.resgionSize) {
-		throw new Error('Missing `resgionSize`. Should be the size of a region in chunks.')
+	if (!configs.regionSize) {
+		throw new Error('Missing `regionSize`. Should be the size of a region in chunks.')
 	}
 	if (!configs.totalCount) {
 		throw new Error('missing `totalCount`. Should be the total amount of regions.')
@@ -31,7 +31,7 @@ const createGenerator = configs => {
 		configs.chunkyLauncher,
 		configs.outputPath,
 		configs.sceneName,
-		configs.resgionSize,
+		configs.regionSize,
 		configs.totalCount,
 		configs.mcVersion,
 		configs.metadataOptions,
