@@ -9,7 +9,8 @@ const defaultOptions = {
 	outputPath: path.join(homedir(), 'Downloads'),
 	sceneName: 'scene',
 	mcVersion: '1.18.2',
-	notifyWhenDone: false
+	notifyWhenDone: false,
+	chunkyVerbose: false
 }
 
 const createGenerator = configs => {
