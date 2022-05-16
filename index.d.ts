@@ -18,14 +18,14 @@ export class Generator {
 }
 
 export class Chunky {
-	constructor(chunkyLauncher: string, chunkyHome: string, sceneName: string, verbose: boolean | undefined): Chunky
+	constructor(chunkyLauncher: string, chunkyHome: string, sceneName: string, verbose: boolean | undefined)
 	updateSceneData: (options: Record<string, string | number>) => Promise<void>
 	renderScene: (outPath: string) => Promise<void>
 	do: (something: string | undefined) => Promise<void>
 }
 
 export class Regions {
-	constructor(chunkyHome: string, mcVersion: string, regionSize: number, totalCount: number): Regions
+	constructor(chunkyHome: string, mcVersion: string, regionSize: number, totalCount: number)
 	calculateRegionCoordinates: (index: number) => { x: number; z: number }
 	getRegionBiomes: (index: number) => Promise<Biome[]>
 	getRegionBounds: (index: number) => RegionBounds
