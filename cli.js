@@ -19,21 +19,18 @@ parser.add_argument('--configs', '-c', {
 parser.add_argument('--index', '-i', {
 	help: `Specify which region to focus on. (non zero-based)`
 })
-parser.add_argument('--all', '-a', {
-	help: `Specify whether to generate all regions.`
-})
 
 const main = async args => {
 	const configs = require(args.configs)
 	const generator = createGenerator(configs)
 	const method = 'generate' + args.what.charAt(0).toUpperCase() + args.what.slice(1)
 
-	if (args.all) {
+	if (args.index) {
+		await generator[method](args.index)
+	} else {
 		for (let i = 1; i <= configs.totalCount; i++) {
 			await generator[method](i)
 		}
-	} else {
-		await generator[method](args.index)
 	}
 }
 
