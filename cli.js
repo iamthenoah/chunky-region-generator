@@ -26,7 +26,7 @@ parser.add_argument('--all', '-a', {
 const main = async args => {
 	const configs = require(args.configs)
 	const generator = createGenerator(configs)
-	const method = args.what === 'image' ? 'generateImage' : 'generateMetadata'
+	const method = 'generate' + args.what.charAt(0).toUpperCase() + args.what.slice(1)
 
 	if (args.all) {
 		for (let i = 1; i <= configs.totalCount; i++) {
