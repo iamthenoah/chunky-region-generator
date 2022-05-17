@@ -19,7 +19,7 @@ export class Generator {
 
 export class Chunky {
 	constructor(chunkyLauncher: string, chunkyHome: string, sceneName: string, verbose: boolean | undefined)
-	updateSceneData: (options: (scene: Record<string, string | number>) => void) => Promise<void>
+	updateSceneData: (callback: (scene: Record<string, string | number>) => void) => Promise<void>
 	renderScene: (outPath: string) => Promise<void>
 	do: (something: string | undefined) => Promise<void>
 }
