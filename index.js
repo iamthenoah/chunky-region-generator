@@ -3,6 +3,7 @@
 const Generator = require('./lib/generator')
 const { homedir } = require('os')
 const path = require('path')
+const assert = require('assert')
 
 const defaultOptions = {
 	chunkyHome: path.join(homedir(), '.chunky'),
@@ -14,15 +15,9 @@ const defaultOptions = {
 }
 
 const createGenerator = configs => {
-	if (!configs.chunkyLauncher) {
-		throw new Error('Missing `chunkyLauncher`. Should be the path to the Chunky launcher a jar file.')
-	}
-	if (!configs.regionSize) {
-		throw new Error('Missing `regionSize`. Should be the size of a region in chunks.')
-	}
-	if (!configs.totalCount) {
-		throw new Error('missing `totalCount`. Should be the total amount of regions.')
-	}
+	assert(configs.chunkyLauncher, 'Missing `chunkyLauncher`. Should be the path of the Chunky launcher jar file.')
+	assert(configs.regionSize, 'Missing `regionSize`. Should be the size of a region in chunks.')
+	assert(configs.totalCount, 'Missing `totalCount`. Should be the total amount of regions.')
 
 	// apply default generator configs if missing
 	Object.entries(defaultOptions).forEach(([k, v]) => (configs[k] = configs[k] ?? v))
