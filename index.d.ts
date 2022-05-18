@@ -8,13 +8,12 @@ export class Generator {
 		sceneName: string,
 		regionSize: number,
 		totalCount: number,
-		metadataOptions: MetadataOptions | undefined,
 		notifyWhenDone: boolean | undefined
 	)
 	readonly chunky: Chunky
 	readonly regions: Regions
 	generateImage: (index: number) => Promise<void>
-	generateMetadata: (index: number) => Promise<void>
+	generateMetadata: (index: number, metadataOptions: MetadataOptions) => Promise<void>
 }
 
 export class Chunky {
@@ -71,7 +70,6 @@ export interface GeneratorConfigs {
 	regionSize: number
 	totalCount: number
 	notifyWhenDone?: boolean
-	metadataOptions?: MetadataOptions
 }
 
 export function createGenerator(configs: GeneratorConfigs): Generator

@@ -19,17 +19,23 @@ parser.add_argument('--configs', '-c', {
 parser.add_argument('--index', '-i', {
 	help: `Specify which region to focus on. (non zero-based)`
 })
+parser.add_argument('--metadata', '-m', {
+	help: `Specify the path the metadata options file.`
+})
 
 const main = async args => {
 	const configs = require(args.configs)
 	const generator = createGenerator(configs)
 	const method = 'generate' + args.what.charAt(0).toUpperCase() + args.what.slice(1)
 
+	// load metadata options file if present
+	const metadata = args.metadata ? require(args.metadata) : undefined
+
 	if (args.index) {
-		await generator[method](args.index)
+		await generator[method](args.index, metadata)
 	} else {
 		for (let i = 1; i <= configs.totalCount; i++) {
-			await generator[method](i)
+			await generator[method](i, metadata)
 		}
 	}
 }
