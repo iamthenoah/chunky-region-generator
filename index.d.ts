@@ -33,14 +33,14 @@ export class Regions {
 }
 
 export type RegionBounds = {
-	chunks: [number, number]
-	blocks: [number, number]
+	chunks: number[][]
+	blocks: number[][]
 }
 
 export type RegionAttribute = {
 	trait_type: string
-	display_type?: 'number'
-	value: string | number
+	display_type?: string
+	value: string
 }
 
 export type RegionMetaData = {
