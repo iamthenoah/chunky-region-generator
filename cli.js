@@ -32,10 +32,10 @@ const main = async args => {
 	const metadata = args.metadata ? require(args.metadata) : undefined
 
 	if (args.index) {
-		await generator[method](args.index, metadata)
+		await generator[method](args.index, metadata, true)
 	} else {
 		for (let i = 1; i <= configs.totalCount; i++) {
-			await generator[method](i, metadata)
+			await generator[method](i, metadata, true)
 		}
 	}
 }
