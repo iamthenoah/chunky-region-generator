@@ -13,11 +13,7 @@ export class Generator {
 	readonly chunky: Chunky
 	readonly regions: Regions
 	generateImage: (index: number) => Promise<void>
-	generateMetadata: (
-		index: number,
-		metadataOptions: MetadataOptions,
-		doSave: boolean | undefined
-	) => Promise<RegionMetaData>
+	generateMetadata: (index: number, metadataOptions: MetadataOptions, doSave?: boolean) => Promise<RegionMetaData>
 }
 
 export class Chunky {
