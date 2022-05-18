@@ -16,7 +16,7 @@ export class Generator {
 	generateMetadata: (
 		index: number,
 		metadataOptions: MetadataOptions,
-		doSave: boolean = false
+		doSave: boolean | undefined
 	) => Promise<RegionMetaData>
 }
 
