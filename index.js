@@ -3,7 +3,7 @@
 const Generator = require('./lib/generator')
 const { homedir } = require('os')
 const path = require('path')
-const assert = require('assert')
+const assert = require('./lib/util/assert')
 
 const defaultOptions = {
 	chunkyHome: path.join(homedir(), '.chunky'),
