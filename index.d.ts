@@ -43,7 +43,7 @@ export type RegionAttribute = {
 	value: string
 }
 
-export type RegionMetaData = {
+export type RegionMetadata = {
 	name: string
 	description: string
 	external_url: string
